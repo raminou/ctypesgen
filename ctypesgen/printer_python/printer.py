@@ -190,7 +190,7 @@ class WrapperPrinter:
         self.file.write("_libs = {}\n")
         self.file.write("_libdirs = %s\n\n" % self.options.compile_libdirs)
         self.file.write("# Begin loader\n\n")
-        if self.options.embed_preamble:
+        if self.options.embed_loader:
             with open(LIBRARYLOADER_PATH, "r") as loader_file:
                 self.file.write(loader_file.read())
         else:

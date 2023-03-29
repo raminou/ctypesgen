@@ -41,6 +41,7 @@ default_values = {
     "debug_level": 0,
     "strip_prefixes": [],
     "embed_preamble": True,
+    "embed_loader": True,
 }
 
 

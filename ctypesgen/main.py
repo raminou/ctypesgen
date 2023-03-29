@@ -144,6 +144,16 @@ def main(givenargs=None):
         "Defining --output as a file and --output-language to "
         "Python is a prerequisite.",
     )
+    op.add_option(
+        "",
+        "--no-embed-loader",
+        action="store_false",
+        dest="embed_loader",
+        default=True,
+        help="Do not embed loader in output file. "
+        "Defining --output as a file and --output-language to "
+        "Python is a prerequisite.",
+    )
 
     # Parser options
     op.add_option(
