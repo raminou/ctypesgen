@@ -223,7 +223,20 @@ class WrapperPrinter:
         )
 
     def print_typedef(self, typedef):
-        self.file.write("%s = %s" % (typedef.name, typedef.ctype.py_string()))
+        pydef_typedefs = {
+            "__int8_t": "c_int8",
+            "__int16_t": "c_int16",
+            "__int32_t": "c_int32",
+            "__int64_t": "c_int64",
+            "__uint8_t": "c_uint8",
+            "__uint16_t": "c_uint16",
+            "__uint32_t": "c_uint32",
+            "__uint64_t": "c_uint64",
+        }
+        if(typedef.name in pydef_typedefs):
+            self.file.write("%s = %s" % (typedef.name, pydef_typedefs[typedef.name]))
+        else:
+            self.file.write("%s = %s" % (typedef.name, typedef.ctype.py_string()))
         self.srcinfo(typedef.src)
 
     def print_struct(self, struct):
